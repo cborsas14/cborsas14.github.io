@@ -26,9 +26,33 @@
     </div>
     <script>
       function clickMe() {
-        const content = document.querySelector(".content");
-        content.innerHTML = "Hello world";
+        const header = document.querySelector(".header");
+        header.textContent = "Costa Borsas' Lab  4";
+        const content_html = document.querySelector(".content");
+        while (content_html.firstChild) {
+            content_html.removeChild(content_html.firstChild);
+        }
+        const p1 = document.createElement("p");
+        p1.setAttribute("class", "char-length");
+        p1.textContent = "my name has 11 characters";
+        const p2 = document.createElement("p");
+        p2.setAttribute("class", "3rd-char");
+
+
+        content_html.appendChild(p1);
+        content_html.appendChild(p2);
+
+        var first = "Costa";
+        var letter = first.charAt(2);
+        return letter;
+
+
+
       }
+
+
+
+
     </script>
   </body>
 </html>
