@@ -37,14 +37,20 @@
         p1.textContent = "my name has 11 characters";
         const p2 = document.createElement("p");
         p2.setAttribute("class", "3rd-char");
-
+        var first = "Costa";
+        var last = "Borsas";
+        var letter = first.charAt(2).toUpperCase();
+        var last3 = last.substring(3, 6);
+        p2.innerHTML = letter.concat("<br>",last3);
+        var first1 = "Costa";
+        var last2 = "Borsas";
+    
 
         content_html.appendChild(p1);
         content_html.appendChild(p2);
 
-        var first = "Costa";
-        var letter = first.charAt(2);
-        return letter;
+        
+
 
 
 
