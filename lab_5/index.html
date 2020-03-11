@@ -3,14 +3,14 @@
 
 <head>
   <title>Test JSON page</title>
-  <link rel="stylesheet" type="text/css" href="./styles.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
   <div class="container">
     <div class="wrapper">
-      <div class="header">Test JSON page</div>
-      <button class="activate">Click me to replace list
+      <div class="header">Costa's List of Countries</div>
+      <button class="activate" onclick="replaceContent();">Click me to replace list
         entries</button>
       <div class="content">
       </div>
@@ -265,6 +265,49 @@
       { "name": "Zimbabwe", "code": "ZW" }
     ]
     console.log("List of countries in the world", countries);
+
+    function ElementInjector(contentName, elemType, className, itemElem) {
+      const contTarget = document.querySelector(contentName);
+      const new_item = document.createElement(elemType);
+      new_item.setAttribute(itemElem, className);
+      contTarget.appendChild(new_item);
+    }
+
+    function getRandom(arr) {
+      const newlist = [];
+      for (var i = 0; i < 25; i++){
+       var random = arr[Math.floor(Math.random() * arr.length)];
+       newlist.push(random);
+      }
+      return newlist;
+
+
+    }
+
+
+    function replaceContent() {
+      ElementInjector(".content", "ol", "countries", "class");
+      var country_list = getRandom(countries);
+      console.log(country_list);
+      for (var i = 0; i < country_list.length; i++) {
+        console.log(country_list[i].name);
+        const contTarget = document.querySelector(".countries");
+        const new_item = document.createElement("Li");
+        var country_string = country_list[i].name.concat(" ");
+        var textnode = document.createTextNode(country_string);
+
+        new_item.appendChild(textnode);
+        contTarget.appendChild(new_item);
+        bold = document.createElement("strong");
+        var country_code = document.createTextNode(country_list[i].code);
+        bold.appendChild(country_code);
+        new_item.appendChild(bold);
+
+  }
+}
+    
+
+
   </script>
 </body>
 
